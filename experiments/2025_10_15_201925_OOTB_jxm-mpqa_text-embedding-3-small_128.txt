@@ -1,0 +1,50 @@
+=== Experiment Summary: Semantic Routing Classification ===
+
+Timestamp         : 2025_10_15_201925
+
+Experiment Notes  : NA
+
+DATA CONFIGURATION
+Router Name       : OOTB
+Batch Size        : 1024
+Dataset Repo ID    : jxm/mpqa
+Dataset Domain    : Sentiment
+Dataset Name      : MPQA
+Train Limit       : 8859
+Test Limit        : 2000
+Vector Dimensions : 128
+Embedding Model   : text-embedding-3-small
+
+REDIS SCHEMA
+Index Name        : MPQA
+Prefix            : test1
+Storage Type      : hash
+Fields:
+  - label (tag)
+  - vector (vector)  dims=128, metric=cosine, algo=hnsw
+
+REDIS INDEX INFO
+No index info available
+EVALUATION METRICS
+Accuracy          : 0.8510
+Precision (macro) : 0.8605
+Recall (macro)    : 0.8510
+F1 (macro)        : 0.8500
+
+CONFUSION MATRIX [ [TP_0, FP_0], [FN_1, TP_1] ]
+  [770, 230]
+  [68, 932]
+
+CLASSIFICATION REPORT
+Class 0: Precision=0.919, Recall=0.770, F1=0.838, Support=1000
+Class 1: Precision=0.802, Recall=0.932, F1=0.862, Support=1000
+
+Macro Avg:
+  Precision=0.860, Recall=0.851, F1=0.850
+
+TIMINGS (seconds)
+Build Routes                                 : 0.011
+Build Router                                 : 31.293
+Predict using test data                      : 12.454
+
+=============================================================
