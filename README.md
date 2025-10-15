@@ -8,6 +8,8 @@ Semantic Routing involves processing texts into vectors, then applying a KNN sty
 
 The results obtained below are acquired using [The Semantic Router](https://github.com/redis/redis-vl-python/tree/main/redisvl) of the RedisVL project, with OpenAI's `text-embedding-3-small` embedding models, with Redis running locally on an Apple M4 Pro with 24GB RAM.
 
+All datasets retrieved from [ATC Paper Author's HFace](https://huggingface.co/waashk/datasets)
+
 ## Considerations
 
 Further optimizations may be applied with more advanced search algorithms - This project provides one option that allows for such experimentation.
