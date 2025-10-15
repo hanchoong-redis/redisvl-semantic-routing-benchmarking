@@ -12,7 +12,7 @@ Dataset Domain    : Sentiment
 Dataset Name      : MPQA
 Train Limit       : 8859
 Test Limit        : 2000
-Vector Dimensions : 128
+Vector Dimensions : 1536
 Embedding Model   : text-embedding-3-small
 
 REDIS SCHEMA
