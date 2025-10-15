@@ -2,7 +2,23 @@
 
 This project aims to evaluate Redis for text classification, using the same benchmarks and metrics used by [Cunha et al](https://arxiv.org/pdf/2504.01930).
 
-In order to process bulk classifications in order of thousands to hundreds of thousands, minor modifications are made to RedisVL classes.
+## Method
+
+Semantic Routing involves processing texts into vectors, then applying a KNN style classification with aggregations. It relies on an embedding model and fast vector search mechanisms, which is Redis' forte.
+
+The results obtained below are acquired using [The Semantic Router](https://github.com/redis/redis-vl-python/tree/main/redisvl) of the RedisVL project. 
+
+## Considerations
+
+Further optimizations may be applied with more advanced search algorithms - This project provides one option that allows for such experimentation.
+
+When comparing with SLMs and LLMs, take note that those models were finetuned on the datasets before classification was applied. Semantic Routing is cheaper and faster than training and applying a fully-fledged language model. It requires only access to an embedding service.
+
+Speed wise, it is comparable to traditional methods, while exceeding their performance.
+
+## Modifications made to RedisVL
+
+In order to process bulk classifications at speed, minor modifications are made to RedisVL classes.
 
 These include:
 1. Passing lower dimensions and higher batch-sizes to the OpenAIVectorizer 
