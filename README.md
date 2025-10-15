@@ -6,7 +6,7 @@ This project aims to evaluate Redis for text classification, using the same benc
 
 Semantic Routing involves processing texts into vectors, then applying a KNN style classification with aggregations. It relies on an embedding model and fast vector search mechanisms, which is Redis' forte.
 
-The results obtained below are acquired using [The Semantic Router](https://github.com/redis/redis-vl-python/tree/main/redisvl) of the RedisVL project. 
+The results obtained below are acquired using [The Semantic Router](https://github.com/redis/redis-vl-python/tree/main/redisvl) of the RedisVL project, with OpenAI's `text-embedding-3-small` embedding models. 
 
 ## Considerations
 
