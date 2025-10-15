@@ -6,7 +6,7 @@ This project aims to evaluate Redis for text classification, using the same benc
 
 Semantic Routing involves processing texts into vectors, then applying a KNN style classification with aggregations. It relies on an embedding model and fast vector search mechanisms, which is Redis' forte.
 
-The results obtained below are acquired using [The Semantic Router](https://github.com/redis/redis-vl-python/tree/main/redisvl) of the RedisVL project, with OpenAI's `text-embedding-3-small` embedding models. 
+The results obtained below are acquired using [The Semantic Router](https://github.com/redis/redis-vl-python/tree/main/redisvl) of the RedisVL project, with OpenAI's `text-embedding-3-small` embedding models, with Redis running locally on an Apple M4 Pro with 24GB RAM.
 
 ## Considerations
 
@@ -53,7 +53,7 @@ How to prevent empty preds other than setting distance threshold to an insane nu
 |           | Subj         | -                    | 89.1(0.6)                  | 87.8(0.7) | 96.9(0.4)                        | 96.1(0.5) | 98.4(0.3) | 98.4(0.3)                        | 98.1(0.4) |   |   |   |
 |           | SST2         | 92.2                 | 78.9(0.6)                  | 76.9(0.4) | 93.2(0.6)                        | 92.1(0.4) | 96.5(0.4) | 96.4(0.5)                        | 96.3(0.5) |   |   |   |
 |           | yelp_reviews | -                    | 94.8(0.7)                  | 87.9(0.9) | 97.9(0.4)                        | 97.3(0.4) | 99.4(0.1) | 99.1(0.3)                        | 99.1(0.2) |   |   |   |
-| Large     | AGNews       | -                    | 91.8(0.3)                  | 88.1(0.3) | 94.2(0.2)                        | 94.0(0.1) | 95.7(0.2) | 95.0(0.1)                        | 95.6(0.3) |   |   |   |
+| Large     | AGNews       | 89.7                 | 91.8(0.3)                  | 88.1(0.3) | 94.2(0.2)                        | 94.0(0.1) | 95.7(0.2) | 95.0(0.1)                        | 95.6(0.3) |   |   |   |
 |           | Yelp_2013    | -                    | 56.8(0.1)                  | 51.0(0.1) | 64.4(0.6)                        | 63.0(0.5) | 69.5(0.1) | 61.3(0.3)                        | 69.1(0.3) |   |   |   |
 |           | MEDLINE      | -                    | 80.4(0.4)                  | 80.0(0.6) | 81.8(0.6)                        | 60.3(0.5) | 85.6(0.3) | 84.9(0.2)                        | 85.3(0.2) |   |   |   |
 
@@ -73,7 +73,7 @@ How to prevent empty preds other than setting distance threshold to an insane nu
 |           | Movie Review | -                    | 10.1                       | 59.7    | 316.5                            | 1352.2  | 4694.6    | 4706.8                           | 4718.0   |   |   |   |
 |           | vader_movie  | -                    | 12.4                       | 73.9    | 319.0                            | 555.7   | 4656.7    | 4665.3                           | 4677.9   |   |   |   |
 |           | MPQA         | 43.76                | 0.6                        | 36.3    | 318.0                            | 1072.5  | 4670.0    | 4673.1                           | 4683.7   |   |   |   |
-| Large     | AGNews       | -                    | 162.7                      | 3626.3  | 8464.0                           | 10243.6 | 51153.5   | 50981.5                          | 51184.6  |   |   |   |
+| Large     | AGNews       | 1154.1               | 162.7                      | 3626.3  | 8464.0                           | 10243.6 | 51153.5   | 50981.5                          | 51184.6  |   |   |   |
 |           | Yelp_2013    | -                    | 6666.6                     | 18945.7 | 18023.5                          | 31684.8 | 135039.3  | 134468.5                         | 130036.1 |   |   |   |
 |           | MEDLINE      | -                    | 2610.2                     | 26163.8 | 57354.2                          | 99641.6 | 345407.9  | 344450.1                         | 345134.4 |   |   |   |
 
