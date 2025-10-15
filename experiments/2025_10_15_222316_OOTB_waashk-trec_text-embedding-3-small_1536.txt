@@ -1,0 +1,47 @@
+=== Experiment Summary: Semantic Routing Classification ===
+
+Timestamp         : 2025_10_15_222316
+
+Experiment Notes  : NA
+
+DATA CONFIGURATION
+Router Name       : OOTB
+Batch Size        : 1024
+Dataset Repo ID    : waashk/trec
+Dataset Domain    : Topic
+Dataset Name      : TREC
+Train Limit       : 5356
+Test Limit        : 596
+Vector Dimensions : 1536
+Embedding Model   : text-embedding-3-small
+
+
+No index info available
+EVALUATION METRICS
+Accuracy          : 0.6007
+Precision (macro) : 0.6751
+Recall (macro)    : 0.6852
+F1 (macro)        : 0.5569
+
+CONFUSION MATRIX [ [TP_0, FP_0], [FN_1, TP_1] ]
+  [28, 3, 74, 13, 6, 6]
+  [7, 43, 38, 32, 13, 2]
+
+CLASSIFICATION REPORT
+Class 0: Precision=0.800, Recall=0.215, F1=0.339, Support=130
+Class 1: Precision=0.878, Recall=0.319, F1=0.467, Support=135
+Class 2: Precision=0.066, Recall=1.000, F1=0.123, Support=9
+Class 3: Precision=0.663, Recall=0.915, F1=0.769, Support=129
+Class 4: Precision=0.736, Recall=0.880, F1=0.802, Support=92
+Class 5: Precision=0.908, Recall=0.782, F1=0.840, Support=101
+
+Macro Avg:
+  Precision=0.675, Recall=0.685, F1=0.557
+
+TIMINGS (seconds)
+Build Routes                                 : 0.003
+Build Router                                 : 23.725
+Predict using test data                      : 5.356
+Total: 29.084
+
+=============================================================

@@ -1,0 +1,52 @@
+=== Experiment Summary: Semantic Routing Classification ===
+
+Timestamp         : 2025_10_15_230851
+
+Experiment Notes  : NA
+
+DATA CONFIGURATION
+Router Name       : OOTB
+Batch Size        : 1024
+Dataset Repo ID    : waashk/wos5736
+Dataset Domain    : Topic
+Dataset Name      : WOS-5736
+Train Limit       : 5162
+Test Limit        : 574
+Vector Dimensions : 1536
+Embedding Model   : text-embedding-3-small
+
+
+No index info available
+EVALUATION METRICS
+Accuracy          : 0.6725
+Precision (macro) : 0.7296
+Recall (macro)    : 0.6923
+F1 (macro)        : 0.6467
+
+CONFUSION MATRIX [ [TP_0, FP_0], [FN_1, TP_1] ]
+  [40, 4, 0, 1, 0, 0, 0, 0, 0, 0, 0]
+  [1, 36, 0, 6, 0, 0, 0, 0, 0, 0, 0]
+
+CLASSIFICATION REPORT
+Class 0: Precision=0.741, Recall=0.889, F1=0.808, Support=45
+Class 1: Precision=0.692, Recall=0.837, F1=0.758, Support=43
+Class 10: Precision=0.528, Recall=0.929, F1=0.674, Support=70
+Class 2: Precision=0.780, Recall=0.929, F1=0.848, Support=42
+Class 3: Precision=0.655, Recall=0.974, F1=0.784, Support=39
+Class 4: Precision=0.822, Recall=0.925, F1=0.871, Support=40
+Class 5: Precision=0.778, Recall=0.553, F1=0.646, Support=38
+Class 6: Precision=1.000, Recall=0.024, F1=0.047, Support=42
+Class 7: Precision=0.724, Recall=0.280, F1=0.404, Support=75
+Class 8: Precision=0.649, Recall=0.769, F1=0.704, Support=65
+Class 9: Precision=0.655, Recall=0.507, F1=0.571, Support=75
+
+Macro Avg:
+  Precision=0.730, Recall=0.692, F1=0.647
+
+TIMINGS (seconds)
+Build Routes                                 : 0.722
+Build Router                                 : 48.298
+Predict using test data                      : 9.940
+Total: 58.960
+
+=============================================================

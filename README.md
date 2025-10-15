@@ -2,6 +2,10 @@
 
 This project aims to evaluate Redis for text classification, using the same benchmarks and metrics used by [Cunha et al](https://arxiv.org/pdf/2504.01930).
 
+Note: This Semantic Routing implementation is unoptimized - More work has to be done to improve performance. Semantic Routing seems to perform inadequately when dealing with long-form texts.
+
+
+
 ## Method
 
 Semantic Routing involves processing texts into vectors, then applying a KNN style classification with aggregations. It relies on an embedding model and fast vector search mechanisms, which is Redis' forte.
@@ -27,15 +31,15 @@ These include:
 2. Adding batch routing to the SemanticRouter
 3. Batch embedding for threshold optimizer 
 
-Open Question:
-How to prevent empty preds other than setting distance threshold to an insane number like 0.9999
+## Ideas
+1. Chunk reference texts, embed chunks
 
 # Results
 
 ## Macro-F1 Scores
 | Category  | Dataset      | **Semantic Routing** | **Traditional Approaches** |           | **Small Language Models (SLMs)** |           |           | **Large Language Models (LLMs)** |           |   |   |   |
 | --------- | ------------ | -------------------- | -------------------------- | --------- | -------------------------------- | --------- | --------- | -------------------------------- | --------- | - | - | - |
-|           |              | Redis                | LSVM                       | RF        | RoBERTa                          | XLNet     | LLaMa 3.1 | Mistral                          | DeepSeek  |   |   |   |
+|           |              | Redis (OOTB)         | LSVM                       | RF        | RoBERTa                          | XLNet     | LLaMa 3.1 | Mistral                          | DeepSeek  |   |   |   |
 | Topic     | DBLP         | -                    | 79.7(0.7)                  | 62.6(0.9) | 81.4(0.5)                        | 81.4(0.6) | 87.8(0.4) | 86.7(0.5)                        | 86.5(0.5) |   |   |   |
 |           | Books        | -                    | 84.5(0.5)                  | 75.7(0.5) | 87.2(0.6)                        | 87.3(0.4) | 93.0(0.3) | 92.6(0.4)                        | 92.2(0.5) |   |   |   |
 |           | ACM          | -                    | 67.7(1.5)                  | 60.1(1.2) | 70.3(1.4)                        | 69.9(0.9) | 77.8(0.9) | 76.3(1.4)                        | 75.2(1.3) |   |   |   |
@@ -45,9 +49,9 @@ How to prevent empty preds other than setting distance threshold to an insane nu
 |           | WOS-11967    | -                    | 85.9(0.5)                  | 83.8(0.6) | 86.8(0.4)                        | 87.0(0.7) | 89.9(0.4) | 89.1(0.7)                        | 89.6(0.7) |   |   |   |
 |           | WebKB        | -                    | 70.7(1.9)                  | 64.9(1.6) | 83.0(2.0)                        | 81.9(2.5) | 87.3(1.5) | 86.0(1.3)                        | 85.7(1.8) |   |   |   |
 |           | Twitter      | -                    | 64.0(1.1)                  | 45.5(1.3) | 78.4(1.8)                        | 76.4(2.1) | 78.6(1.6) | 79.3(2.4)                        | 78.4(1.8) |   |   |   |
-|           | TREC         | -                    | 68.8(2.5)                  | 66.0(1.8) | 95.5(0.5)                        | 94.3(1.1) | 96.1(0.8) | 96.0(0.8)                        | 96.1(0.6) |   |   |   |
-|           | WOS-5736     | -                    | 91.2(0.8)                  | 91.0(0.6) | 90.5(0.9)                        | 90.2(0.9) | 91.9(0.5) | 91.9(0.6)                        | 91.4(0.9) |   |   |   |
-| Sentiment | SST1         | -                    | 34.8(1.1)                  | 33.6(1.1) | 53.8(1.3)                        | 51.4(1.7) | 58.7(1.0) | 58.1(0.9)                        | 57.6(0.9) |   |   |   |
+|           | TREC         | 55.7                 | 68.8(2.5)                  | 66.0(1.8) | 95.5(0.5)                        | 94.3(1.1) | 96.1(0.8) | 96.0(0.8)                        | 96.1(0.6) |   |   |   |
+|           | WOS-5736     | 65.6                 | 91.2(0.8)                  | 91.0(0.6) | 90.5(0.9)                        | 90.2(0.9) | 91.9(0.5) | 91.9(0.6)                        | 91.4(0.9) |   |   |   |
+| Sentiment | SST1         | 31.5                 | 34.8(1.1)                  | 33.6(1.1) | 53.8(1.3)                        | 51.4(1.7) | 58.7(1.0) | 58.1(0.9)                        | 57.6(0.9) |   |   |   |
 |           | pang_movie   | -                    | 77.3(0.8)                  | 75.5(0.8) | 89.0(0.4)                        | 88.2(0.6) | 93.6(0.4) | 93.6(0.4)                        | 92.9(0.2) |   |   |   |
 |           | Movie Review | -                    | 75.9(0.9)                  | 73.5(0.5) | 89.0(0.7)                        | 86.4(3.3) | 92.0(4.0) | 93.8(0.5)                        | 92.8(0.4) |   |   |   |
 |           | vader_movie  | -                    | 78.6(0.8)                  | 76.4(0.9) | 91.3(0.5)                        | 90.5(0.4) | 95.8(0.4) | 95.9(0.3)                        | 95.1(0.5) |   |   |   |
