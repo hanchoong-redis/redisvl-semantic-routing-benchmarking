@@ -1,0 +1,43 @@
+=== Experiment Summary: Semantic Routing Classification ===
+
+Timestamp         : 2025_10_15_210021
+
+Experiment Notes  : NA
+
+DATA CONFIGURATION
+Router Name       : OOTB
+Batch Size        : 1024
+Dataset Repo ID    : SetFit/sst2
+Dataset Domain    : Sentiment
+Dataset Name      : SST-2
+Train Limit       : 7792
+Test Limit        : 1821
+Vector Dimensions : 1536
+Embedding Model   : text-embedding-3-small
+
+
+No index info available
+EVALUATION METRICS
+Accuracy          : 0.9220
+Precision (macro) : 0.9221
+Recall (macro)    : 0.9220
+F1 (macro)        : 0.9220
+
+CONFUSION MATRIX [ [TP_0, FP_0], [FN_1, TP_1] ]
+  [836, 76]
+  [66, 843]
+
+CLASSIFICATION REPORT
+Class 0: Precision=0.927, Recall=0.917, F1=0.922, Support=912
+Class 1: Precision=0.917, Recall=0.927, F1=0.922, Support=909
+
+Macro Avg:
+  Precision=0.922, Recall=0.922, F1=0.922
+
+TIMINGS (seconds)
+Build Routes                                 : 0.006
+Build Router                                 : 34.002
+Predict using test data                      : 15.141
+Total: 49.149
+
+=============================================================
