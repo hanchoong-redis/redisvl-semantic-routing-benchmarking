@@ -30,9 +30,11 @@ These include:
 1. Passing lower dimensions and higher batch-sizes to the OpenAIVectorizer 
 2. Adding batch routing to the SemanticRouter
 3. Batch embedding for threshold optimizer 
+4. L2 Normalization applied to vectorizer
+5. Strings
 
 ## Ideas
-1. Chunk reference texts, embed chunks
+1. Chunk reference texts, embed chunks, aggregate inverse distances of all chunks per text - take minimum. No improvement.
 
 # Results
 
