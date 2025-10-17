@@ -1,0 +1,47 @@
+=== Experiment Summary: Semantic Routing Classification ===
+
+Timestamp         : 2025_10_16_232729
+
+Experiment Notes  : NA
+
+DATA CONFIGURATION
+Router Name       : OOTB
+Batch Size        : 512
+Dataset Repo ID    : waashk/twitter
+Dataset Domain    : Topic
+Dataset Name      : Twitter
+Train Limit       : 6297
+Test Limit        : 700
+Vector Dimensions : 1536
+Embedding Model   : text-embedding-3-small
+
+
+No index info available
+EVALUATION METRICS
+Accuracy          : 0.8386
+Precision (macro) : 0.6798
+Recall (macro)    : 0.7737
+F1 (macro)        : 0.7103
+
+CONFUSION MATRIX [ [TP_0, FP_0], [FN_1, TP_1] ]
+  [11, 1, 1, 1, 0, 1]
+  [1, 22, 0, 4, 0, 5]
+
+CLASSIFICATION REPORT
+Class 0: Precision=0.379, Recall=0.733, F1=0.500, Support=15
+Class 1: Precision=0.667, Recall=0.688, F1=0.677, Support=32
+Class 2: Precision=0.978, Recall=0.799, F1=0.880, Support=274
+Class 3: Precision=0.635, Recall=0.760, F1=0.692, Support=96
+Class 4: Precision=0.967, Recall=0.956, F1=0.962, Support=249
+Class 5: Precision=0.453, Recall=0.706, F1=0.552, Support=34
+
+Macro Avg:
+  Precision=0.680, Recall=0.774, F1=0.710
+
+TIMINGS (seconds)
+Build Routes                                 : 0.203
+Build Router                                 : 35.500
+Predict using test data                      : 8.016
+Total: 43.719
+
+=============================================================
